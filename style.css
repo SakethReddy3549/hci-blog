@@ -1,46 +1,153 @@
-button {
-    padding: 10px 20px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #081b29;
+    color: #ededed;
+    line-height: 1.8;
+    padding: 20px;
+    animation: blurry 1.5s ease-out;
+}
+
+@keyframes blurry {
+    0% {
+        transform: scale(0.8);
+        filter: blur(10px);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px 5%;
+    background-color: rgba(8, 27, 41, 0.9);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 100;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+button,
+.btn {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
     font-size: 16px;
     font-weight: bold;
-    color: white;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    background-color: transparent;
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    margin: 10px;
+    transition: all 0.4s ease;
+    text-align: center;
+    min-width: 140px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-
-#home-button {
-    background-color: red;
-}
-
-#assignments-button {
-    background-color: green;
-}
-
-#interests-button {
-    background-color: blue;
-}
-
-
-button:hover {
-    background-color: transparent;
-    color: white;
-    border-color: white;
+button:hover,
+.btn:hover {
     transform: scale(1.1);
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.5);
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
+}
+
+.btn.red {
+    background: linear-gradient(45deg, #ff416c, #ff4d4d);
+}
+
+.btn.red:hover {
+    background: linear-gradient(45deg, #ff4d4d, #ff416c);
+    box-shadow: 0 6px 20px rgba(255, 65, 108, 0.5);
+}
+
+.btn.green {
+    background: linear-gradient(45deg, #38ef7d, #11998e);
+}
+
+.btn.green:hover {
+    background: linear-gradient(45deg, #11998e, #38ef7d);
+    box-shadow: 0 6px 20px rgba(56, 239, 125, 0.5);
+}
+
+.btn.blue {
+    background: linear-gradient(45deg, #2196f3, #6dd5ed);
+}
+
+.btn.blue:hover {
+    background: linear-gradient(45deg, #6dd5ed, #2196f3);
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.5);
 }
 
 
-button:hover a {
+section {
+    margin-top: 100px;
+    padding: 40px 10%;
+}
+
+section h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ededed;
+}
+
+section p {
+    font-size: 18px;
+    color: #ededed;
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+section ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+section ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    list-style-type: disc;
+    color: #ededed;
+}
+
+a {
+    color: #00c8ff;
     text-decoration: none;
 }
 
+a:hover {
+    color: #1effd0;
+    text-decoration: underline;
+}
 
-button a {
-    color: inherit;
-    text-decoration: none;
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
 }
