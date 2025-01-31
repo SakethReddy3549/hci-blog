@@ -50,7 +50,7 @@ body {
 
 button,
 .btn {
-    border: none;
+    border: 2px solid #fff;
     padding: 12px 24px;
     border-radius: 50px;
     font-size: 16px;
@@ -60,52 +60,30 @@ button,
     text-align: center;
     min-width: 140px;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    background: #333333;
     color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
+    outline: none;
+    position: relative;
+    z-index: 1;
 }
 
 button:hover,
 .btn:hover {
+    background: #fff;
+    color: #000;
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.5);
-    background: linear-gradient(45deg, #0072ff, #00c6ff);
 }
 
-.btn.red {
-    background: linear-gradient(45deg, #ff416c, #ff4d4d);
+button,
+.btn {
+    will-change: transform;
+    overflow: hidden;
 }
 
-.btn.red:hover {
-    background: linear-gradient(45deg, #ff4d4d, #ff416c);
-    box-shadow: 0 6px 20px rgba(255, 65, 108, 0.5);
-}
-
-.btn.green {
-    background: linear-gradient(45deg, #38ef7d, #11998e);
-}
-
-.btn.green:hover {
-    background: linear-gradient(45deg, #11998e, #38ef7d);
-    box-shadow: 0 6px 20px rgba(56, 239, 125, 0.5);
-}
-
-.btn.blue {
-    background: linear-gradient(45deg, #2196f3, #6dd5ed);
-}
-
-.btn.blue:hover {
-    background: linear-gradient(45deg, #6dd5ed, #2196f3);
-    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.5);
-}
-
-.btn.pink {
-    background: linear-gradient(45deg, #ff13f0, #ff8da1);
-}
-
-.btn.pink:hover {
-    background: linear-gradient(45deg, #ff8da1, #ff13f0);
-    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
+button:focus,
+.btn:focus {
+    outline: none;
 }
 
 
@@ -161,36 +139,4 @@ a:hover {
     .buttons {
         flex-direction: column;
     }
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    overflow: auto;
-}
-
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 900px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-}
-
-.close {
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
 }
