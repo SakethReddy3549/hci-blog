@@ -1,22 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".open-pdf").forEach(link => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const pdfOverlay = document.createElement('div');
+    pdfOverlay.className = 'pdf-overlay';
+    
+    const pdfCloseBtn = document.createElement('button');
+    pdfCloseBtn.className = 'pdf-close-btn';
+    pdfCloseBtn.innerHTML = '&times;';
+    
+    const pdfContent = document.createElement('div');
+    pdfContent.className = 'pdf-content';
+    
+    pdfOverlay.appendChild(pdfCloseBtn);
+    pdfOverlay.appendChild(pdfContent);
+    document.body.appendChild(pdfOverlay);
 
-      document.querySelectorAll(".pdf-container").forEach(container => container.remove());
-
-      const pdfContainer = document.createElement("div");
-      pdfContainer.classList.add("pdf-container");
-      pdfContainer.innerHTML = `<iframe src="${this.getAttribute("data-pdf")}" width="100%" height="500px" style="border:1px solid #ccc;"></iframe>`;
-
-      this.closest("li").after(pdfContainer);
-
-      document.addEventListener("click", function closeViewer(e) {
-        if (!pdfContainer.contains(e.target) && !link.contains(e.target)) {
-          pdfContainer.remove();
-          document.removeEventListener("click", closeViewer);
-        }
-      }, { once: true });
+    document.querySelectorAll('.open-pdf').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pdfPath = this.getAttribute('data-pdf');
+            
+            const pdfViewer = document.createElement('iframe');
+            pdfViewer.src = pdfPath;
+            pdfViewer.className = 'fullscreen-pdf';
+            
+            pdfContent.innerHTML = '';
+            pdfContent.appendChild(pdfViewer);
+            
+            pdfOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
     });
-  });
+
+    pdfCloseBtn.addEventListener('click', function() {
+        pdfOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    pdfOverlay.addEventListener('click', function(e) {
+        if (e.target === pdfOverlay) {
+            pdfOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
 });
