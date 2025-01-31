@@ -140,3 +140,48 @@ a:hover {
         flex-direction: column;
     }
 }
+
+.pdf-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pdf-content {
+    width: 90%;
+    height: 90%;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.fullscreen-pdf {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.pdf-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.pdf-close-btn:hover {
+    color: #ff4444;
+}
