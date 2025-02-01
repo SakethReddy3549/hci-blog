@@ -42,3 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.querySelector(".menu-icon");
+    const buttons = document.querySelector(".buttons");
+
+    menuIcon.addEventListener("click", function () {
+        buttons.classList.toggle("show");
+    });
+});
