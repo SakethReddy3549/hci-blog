@@ -37,20 +37,26 @@ body {
     justify-content: flex-end;
     align-items: center;
     z-index: 100;
-    width: 100%;
 }
 
 .menu-icon {
     display: none;
-    font-size: 24px;
+    font-size: 28px;
+    color: white;
     cursor: pointer;
-    color: #fff;
-    padding: 10px;
+    position: absolute;
+    top: 20px;
+    right: 5%;
+    z-index: 101;
 }
 
 .buttons {
     display: flex;
     gap: 15px;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
 }
 
 button,
@@ -67,6 +73,7 @@ button,
     font-family: 'Poppins', sans-serif;
     background: #333333;
     color: #fff;
+    box-shadow: none;
     outline: none;
     position: relative;
     z-index: 1;
@@ -77,6 +84,17 @@ button:hover,
     background: #fff;
     color: #000;
     transform: scale(1.1);
+}
+
+button,
+.btn {
+    will-change: transform;
+    overflow: hidden;
+}
+
+button:focus,
+.btn:focus {
+    outline: none;
 }
 
 section {
@@ -120,17 +138,11 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
-    .header {
-        padding: 10px 5%;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
     .menu-icon {
         display: block;
     }
 
     .buttons {
-        display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -139,17 +151,14 @@ a:hover {
         padding: 10px;
         border-radius: 8px;
         gap: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .buttons.show {
-        display: flex;
-    }
-
-    button,
-    .btn {
-        padding: 8px 16px;
-        font-size: 14px;
-        min-width: 120px;
+        opacity: 1;
+        visibility: visible;
     }
 }
 
