@@ -51,3 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
         buttons.classList.toggle("show");
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.querySelector(".menu-icon");
+    const buttons = document.querySelector(".buttons");
+
+    menuIcon.addEventListener("click", function () {
+        buttons.classList.toggle("show");
+    });
+});
