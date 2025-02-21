@@ -42,3 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".open-doc").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevents default behavior
+        const docUrl = link.getAttribute("href");
+        if (docUrl) {
+          window.open(docUrl, "_blank"); // Opens in a new tab
+        }
+      });
+    });
+  });
